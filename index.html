@@ -1,443 +1,323 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Checkout Premium</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POLIPONI 2026 - Bundling Checkout</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-background:#050816;
-min-height:100vh;
-color:white;
-overflow-x:hidden;
+    font-family:'Poppins',sans-serif;
+    background:url('background.jpg') center/cover fixed;
+    min-height:100vh;
+    color:white;
+    overflow-x:hidden;
 }
 
 body::before{
-content:'';
-position:fixed;
-inset:0;
-background:
-radial-gradient(circle at top left,#6c2cff55,transparent 30%),
-radial-gradient(circle at bottom right,#00d0ff33,transparent 30%),
-#050816;
-z-index:-1;
+    content:'';
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.72);
+    z-index:-1;
 }
 
 .container{
-max-width:520px;
-margin:auto;
-padding:22px;
+    width:100%;
+    max-width:500px;
+    margin:auto;
+    padding:16px;
 }
 
-.logo{
-text-align:center;
-margin-bottom:18px;
+.banner{
+    width:100%;
+    border-radius:30px;
+    overflow:hidden;
+    border:4px solid #ffe600;
+    box-shadow:0 0 30px rgba(255,230,0,0.5);
+    animation:float 3s ease-in-out infinite;
 }
 
-.logo h1{
-font-size:28px;
-font-weight:800;
-background:linear-gradient(90deg,#8b5cf6,#00d4ff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+.banner img{
+    width:100%;
+    display:block;
 }
 
-.stepper{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin:25px 0;
-position:relative;
-}
-
-.stepper::before{
-content:'';
-position:absolute;
-left:0;
-right:0;
-top:18px;
-height:3px;
-background:#1b2340;
-z-index:0;
-}
-
-.progress{
-position:absolute;
-left:0;
-top:18px;
-height:3px;
-width:33%;
-background:linear-gradient(90deg,#7c3aed,#00d4ff);
-transition:0.4s;
-z-index:1;
-}
-
-.step{
-position:relative;
-z-index:2;
-text-align:center;
-width:33%;
-}
-
-.circle{
-width:38px;
-height:38px;
-border-radius:50%;
-background:#1c2444;
-border:2px solid #334155;
-display:flex;
-align-items:center;
-justify-content:center;
-margin:auto;
-font-weight:700;
-transition:0.4s;
-}
-
-.step.active .circle{
-background:linear-gradient(135deg,#7c3aed,#00d4ff);
-border:none;
-box-shadow:0 0 18px #7c3aed88;
-}
-
-.step p{
-font-size:12px;
-margin-top:8px;
-color:#94a3b8;
-}
-
-.card{
-background:rgba(13,18,37,0.9);
-border:1px solid rgba(255,255,255,0.08);
-backdrop-filter:blur(12px);
-border-radius:28px;
-padding:24px;
-box-shadow:0 20px 60px rgba(0,0,0,0.45);
-animation:fade 0.5s ease;
-}
-
-@keyframes fade{
-from{opacity:0;transform:translateY(12px)}
-to{opacity:1;transform:translateY(0)}
-}
-
-h2{
-font-size:24px;
-margin-bottom:8px;
-}
-
-.sub{
-color:#94a3b8;
-font-size:14px;
-margin-bottom:22px;
-line-height:1.6;
-}
-
-.input{
-margin-bottom:18px;
-}
-
-.input label{
-display:block;
-margin-bottom:8px;
-font-size:13px;
-font-weight:600;
-color:#cbd5e1;
-}
-
-.input input,
-.input select{
-width:100%;
-padding:15px;
-background:#0b1227;
-border:1px solid #233154;
-border-radius:16px;
-color:white;
-font-size:15px;
-outline:none;
-transition:0.3s;
-}
-
-.input input:focus,
-.input select:focus{
-border-color:#7c3aed;
-box-shadow:0 0 0 4px #7c3aed22;
-}
-
-.package-box{
-background:linear-gradient(135deg,#7c3aed22,#00d4ff11);
-border:1px solid #7c3aed55;
-padding:18px;
-border-radius:22px;
-margin-bottom:20px;
-}
-
-.package-box h3{
-font-size:18px;
-margin-bottom:8px;
-}
-
-.price{
-font-size:30px;
-font-weight:800;
-margin:12px 0;
-color:#00d4ff;
-}
-
-.benefit{
-display:flex;
-align-items:center;
-gap:10px;
-padding:10px 0;
-font-size:14px;
-color:#dbeafe;
-}
-
-.benefit span{
-width:22px;
-height:22px;
-border-radius:50%;
-background:#10b981;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:12px;
-}
-
-.btn{
-width:100%;
-padding:16px;
-border:none;
-border-radius:18px;
-background:linear-gradient(90deg,#7c3aed,#00d4ff);
-color:white;
-font-size:16px;
-font-weight:700;
-cursor:pointer;
-transition:0.3s;
-margin-top:8px;
-}
-
-.btn:hover{
-transform:translateY(-2px);
-box-shadow:0 12px 28px #7c3aed55;
-}
-
-.hidden{
-display:none;
-}
-
-.payment-box{
-text-align:center;
-}
-
-.amount{
-font-size:38px;
-font-weight:800;
-margin:14px 0;
-background:linear-gradient(90deg,#00d4ff,#7c3aed);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.qris-ai{
-margin:22px auto;
-width:100%;
-max-width:340px;
-background:linear-gradient(145deg,#0f172a,#131f3d);
-border-radius:30px;
-padding:24px;
-position:relative;
-overflow:hidden;
-border:1px solid rgba(255,255,255,0.1);
-box-shadow:
-0 20px 50px rgba(0,0,0,0.5),
-0 0 30px rgba(124,58,237,0.3);
-}
-
-.qris-ai::before{
-content:'';
-position:absolute;
-width:250px;
-height:250px;
-background:radial-gradient(circle,#ff003355,transparent 70%);
-top:-100px;
-right:-100px;
-}
-
-.qris-card{
-position:relative;
-background:linear-gradient(180deg,#ffffff,#dfe8ff);
-height:350px;
-border-radius:24px;
-padding:18px;
-overflow:hidden;
-}
-
-.qris-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:16px;
-}
-
-.qris-logo{
-font-size:28px;
-font-weight:900;
-color:#111827;
-letter-spacing:2px;
-}
-
-.limit-badge{
-background:#ef4444;
-color:white;
-padding:8px 14px;
-border-radius:999px;
-font-size:12px;
-font-weight:700;
-box-shadow:0 4px 14px rgba(239,68,68,0.4);
-}
-
-.fake-qr{
-height:190px;
-border-radius:18px;
-background:
-linear-gradient(90deg,#000 10px,transparent 10px) 0 0/30px 30px,
-linear-gradient(#000 10px,transparent 10px) 0 0/30px 30px,
-linear-gradient(90deg,transparent 20px,#000 20px) 0 0/30px 30px,
-linear-gradient(transparent 20px,#000 20px) 0 0/30px 30px,
-#fff;
-position:relative;
-overflow:hidden;
-}
-
-.fake-qr::before{
-content:'⚠';
-position:absolute;
-left:50%;
-top:50%;
-transform:translate(-50%,-50%);
-font-size:90px;
-color:#ef4444;
-background:white;
-width:120px;
-height:120px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-box-shadow:0 0 0 10px rgba(239,68,68,0.2);
-}
-
-.qris-cross{
-position:absolute;
-inset:0;
-}
-
-.qris-cross::before,
-.qris-cross::after{
-content:'';
-position:absolute;
-left:-10%;
-right:-10%;
-top:50%;
-height:12px;
-background:#ef4444;
-border-radius:999px;
-box-shadow:0 0 18px rgba(239,68,68,0.7);
-}
-
-.qris-cross::before{
-transform:rotate(32deg);
-}
-
-.qris-cross::after{
-transform:rotate(-32deg);
-}
-
-.limit-text{
-margin-top:18px;
-background:#fee2e2;
-color:#991b1b;
-padding:14px;
-border-radius:16px;
-font-size:13px;
-font-weight:700;
-line-height:1.6;
-text-align:center;
+@keyframes float{
+    0%{transform:translateY(0px);}
+    50%{transform:translateY(-8px);}
+    100%{transform:translateY(0px);}
 }
 
 .warning-box{
-margin-top:18px;
-background:linear-gradient(135deg,#ff000022,#ff730022);
-border:1px solid #ef4444;
-padding:16px;
-border-radius:18px;
-color:#fecaca;
-font-size:14px;
-line-height:1.7;
+    margin-top:18px;
+    background:black;
+    border:4px solid #ffe600;
+    border-radius:25px;
+    padding:18px;
+    text-align:center;
+    animation:pulse 1.2s infinite;
+    box-shadow:0 0 25px rgba(255,230,0,0.45);
 }
 
-.warning-box strong{
-color:white;
+.warning-box h2{
+    color:#ffe600;
+    font-size:32px;
+    font-weight:800;
 }
 
-.timer{
-margin-top:16px;
-font-size:32px;
-font-weight:800;
-color:#facc15;
+.warning-box p{
+    margin-top:10px;
+    font-size:15px;
 }
 
-.footer-note{
-margin-top:18px;
-text-align:center;
-font-size:12px;
-color:#94a3b8;
-line-height:1.6;
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.02);}
+    100%{transform:scale(1);}
 }
 
-.success-icon{
-width:100px;
-height:100px;
-border-radius:50%;
-background:linear-gradient(135deg,#10b981,#34d399);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:50px;
-margin:0 auto 18px;
-box-shadow:0 0 30px rgba(16,185,129,0.4);
+.logo-area{
+    background:rgba(255,255,255,0.92);
+    margin-top:22px;
+    border-radius:35px;
+    padding:24px 20px;
+    border:4px solid rgba(255,255,255,0.2);
+    text-align:center;
 }
 
-.success-box{
-text-align:center;
+.logo-area img{
+    width:240px;
+    max-width:100%;
 }
 
-.success-box h2{
-margin-bottom:10px;
+.logo-area h1{
+    margin-top:15px;
+    color:black;
+    font-size:42px;
+    line-height:1;
+    font-weight:800;
+    text-shadow:0 0 15px rgba(255,230,0,0.4);
 }
 
-.success-box p{
-line-height:1.7;
-color:#cbd5e1;
+.logo-area h1 span{
+    color:#ffe600;
 }
 
-@media(max-width:480px){
-.card{
-padding:20px;
+.logo-area p{
+    color:#111;
+    margin-top:12px;
+    font-weight:600;
 }
 
-.amount{
-font-size:32px;
+.fake-live{
+    margin-top:20px;
+    background:linear-gradient(135deg,#ff0000,#ff7a00);
+    padding:14px;
+    border-radius:18px;
+    font-weight:700;
+    text-align:center;
+    animation:blink 1s infinite;
 }
+
+@keyframes blink{
+    0%{opacity:1;}
+    50%{opacity:0.75;}
+    100%{opacity:1;}
+}
+
+.checkout-card{
+    margin-top:24px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(18px);
+    border:2px solid rgba(255,255,255,0.12);
+    border-radius:30px;
+    padding:22px;
+}
+
+.section-title{
+    font-size:24px;
+    font-weight:800;
+    margin-bottom:18px;
+    color:#ffe600;
+}
+
+.package{
+    background:white;
+    border-radius:24px;
+    padding:18px;
+    margin-bottom:18px;
+    color:black;
+    border:3px solid transparent;
+    transition:0.3s;
+}
+
+.package:hover{
+    transform:translateY(-4px);
+    border-color:#ffe600;
+}
+
+.package input{
+    display:none;
+}
+
+.package label{
+    display:block;
+    cursor:pointer;
+}
+
+.package h3{
+    font-size:26px;
+    font-weight:800;
+}
+
+.package .price{
+    margin-top:8px;
+    font-size:24px;
+    color:#ff0000;
+    font-weight:800;
+}
+
+.package ul{
+    margin-top:12px;
+    padding-left:18px;
+}
+
+.package ul li{
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:500;
+}
+
+.stock{
+    margin-top:14px;
+    background:#111;
+    color:#ffe600;
+    padding:10px;
+    border-radius:12px;
+    font-size:13px;
+    font-weight:700;
+    text-align:center;
+}
+
+.form-group{
+    margin-bottom:16px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:16px;
+    background:rgba(255,255,255,0.12);
+    color:white;
+    font-size:15px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+    color:#ddd;
+}
+
+.countdown{
+    margin-top:20px;
+    background:#ff0000;
+    border-radius:22px;
+    text-align:center;
+    padding:18px;
+    font-size:20px;
+    font-weight:800;
+    animation:pulse 1s infinite;
+}
+
+.payment-box{
+    margin-top:22px;
+    background:rgba(255,255,255,0.08);
+    border-radius:26px;
+    padding:22px;
+}
+
+.payment-box h2{
+    color:#ffe600;
+    margin-bottom:18px;
+}
+
+.qris-image{
+    width:100%;
+    border-radius:20px;
+    border:4px solid white;
+    margin-bottom:18px;
+}
+
+.limit-box{
+    background:#111;
+    border:2px dashed #ffe600;
+    padding:16px;
+    border-radius:18px;
+    text-align:center;
+    font-weight:700;
+}
+
+.btn{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:20px;
+    margin-top:24px;
+    background:linear-gradient(135deg,#ffe600,#ff9900);
+    color:black;
+    font-size:20px;
+    font-weight:800;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 10px 25px rgba(255,230,0,0.4);
+}
+
+.btn:hover{
+    transform:scale(1.03);
+}
+
+.footer{
+    text-align:center;
+    margin-top:25px;
+    padding-bottom:40px;
+    font-size:13px;
+    color:#ccc;
+}
+
+.running-text{
+    margin-top:16px;
+    background:black;
+    color:#ffe600;
+    padding:10px;
+    border-radius:12px;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+.running-text span{
+    display:inline-block;
+    padding-left:100%;
+    animation:marquee 14s linear infinite;
+}
+
+@keyframes marquee{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-100%);}
 }
 </style>
 </head>
@@ -445,167 +325,169 @@ font-size:32px;
 
 <div class="container">
 
-<div class="logo">
-<h1>PREMIUM CHECKOUT</h1>
-</div>
+    <div class="banner">
+        <img src="banner.png" alt="Banner Event">
+    </div>
 
-<div class="stepper">
-<div class="progress" id="progress"></div>
+    <div class="warning-box">
+        <h2>⚠ TIKET BUNDLING HAMPIR HABIS</h2>
+        <p>Ribuan pengunjung sedang checkout paket bundling saat ini.</p>
+    </div>
 
-<div class="step active" id="stepIndicator1">
-<div class="circle">1</div>
-<p>Data</p>
-</div>
+    <div class="running-text">
+        <span>
+            🔥 183 pengunjung sedang checkout • 7 tiket terakhir Premium • 3 tiket terakhir Fast Track • POLIPONI BALI 2026 🔥
+        </span>
+    </div>
 
-<div class="step" id="stepIndicator2">
-<div class="circle">2</div>
-<p>Pembayaran</p>
-</div>
+    <div class="logo-area">
+        <img src="logo.png" alt="Logo POLIPONI">
+        <h1>OPEN PAKET <span>BUNDLING</span></h1>
+        <p>POLIPONI BALI 2026 • SheilaOn7 • Hindia • Feast • 510 • Dialog Dini Hari</p>
+    </div>
 
-<div class="step" id="stepIndicator3">
-<div class="circle">3</div>
-<p>Verifikasi</p>
-</div>
-</div>
+    <div class="fake-live" id="fakeBuy">
+        🔴 21 orang baru saja membeli Paket Bundling Festival
+    </div>
 
-<!-- STEP 1 -->
-<div class="card" id="step1">
-<h2>Detail Pemesanan</h2>
-<p class="sub">Lengkapi data checkout premium sebelum melanjutkan ke pembayaran.</p>
+    <div class="checkout-card">
+        <div class="section-title">Pilih Paket Bundling</div>
 
-<div class="package-box">
-<h3>Bundling Premium 4 Orang</h3>
-<div class="price">Rp 850.000</div>
+        <div class="package">
+            <label>
+                <input type="radio" name="paket" checked>
+                <h3>BUNDLING FESTIVAL</h3>
+                <div class="price">Rp. 1.900.000 / 4 Orang</div>
 
-<div class="benefit"><span>✓</span> Akses Premium 4 Akun</div>
-<div class="benefit"><span>✓</span> Prioritas Aktivasi Cepat</div>
-<div class="benefit"><span>✓</span> Bonus Private Grup</div>
-<div class="benefit"><span>✓</span> Full Support 24 Jam</div>
-<div class="benefit"><span>✓</span> Benefit Exclusive Member</div>
-</div>
+                <ul>
+                    <li>✔ 4 Tiket Festival POLIPONI BALI 2026</li>
+                    <li>✔ Free Poster Official Event</li>
+                    <li>✔ Free Sticker Pack Eksklusif</li>
+                    <li>✔ Jalur Check-In Reguler</li>
+                    <li>✔ E-Certificate Event</li>
+                </ul>
 
-<div class="input">
-<label>Nama Lengkap</label>
-<input type="text" placeholder="Masukkan nama lengkap">
-</div>
+                <div class="stock">🔥 SISA 19 PAKET LAGI</div>
+            </label>
+        </div>
 
-<div class="input">
-<label>Nomor WhatsApp</label>
-<input type="number" placeholder="08xxxxxxxxxx">
-</div>
+        <div class="package">
+            <label>
+                <input type="radio" name="paket">
+                <h3>BUNDLING PREMIUM</h3>
+                <div class="price">Rp. 2.900.000 / 4 Orang</div>
 
-<div class="input">
-<label>Email</label>
-<input type="email" placeholder="email@gmail.com">
-</div>
+                <ul>
+                    <li>✔ 4 Tiket Premium Area</li>
+                    <li>✔ Dedicated Entrance Premium</li>
+                    <li>✔ Official Merchandise Event</li>
+                    <li>✔ Free Lanyard + Wristband</li>
+                    <li>✔ Priority Check-In</li>
+                </ul>
 
-<div class="input">
-<label>Metode Pembayaran</label>
-<select>
-<option>QRIS Premium</option>
-<option>Transfer Bank</option>
-<option>E-Wallet</option>
-</select>
-</div>
+                <div class="stock">⚠ TERSISA 9 PAKET PREMIUM</div>
+            </label>
+        </div>
 
-<button class="btn" onclick="nextStep(2)">Lanjut Pembayaran</button>
-</div>
+        <div class="package">
+            <label>
+                <input type="radio" name="paket">
+                <h3>BUNDLING FAST TRACK</h3>
+                <div class="price">Rp. 3.900.000 / 4 Orang</div>
 
-<!-- STEP 2 -->
-<div class="card hidden" id="step2">
-<div class="payment-box">
-<h2>QRIS Pembayaran</h2>
-<p class="sub">Silakan scan QRIS berikut untuk menyelesaikan transaksi.</p>
+                <ul>
+                    <li>✔ 4 Tiket Fast Track Access</li>
+                    <li>✔ Fast Lane Masuk Venue</li>
+                    <li>✔ Exclusive Merchandise Box</li>
+                    <li>✔ Free Photo Spot Access</li>
+                    <li>✔ Prioritas Penukaran Tiket</li>
+                </ul>
 
-<div class="amount">Rp 850.000</div>
+                <div class="stock">🚨 HANYA TERSISA 3 PAKET</div>
+            </label>
+        </div>
 
-<div class="qris-ai">
-<div class="qris-card">
-<div class="qris-header">
-<div class="qris-logo">QRIS</div>
-<div class="limit-badge">LIMIT</div>
-</div>
+        <div class="section-title">Form Checkout</div>
 
-<div class="fake-qr">
-<div class="qris-cross"></div>
-</div>
+        <div class="form-group">
+            <label>Nama Lengkap</label>
+            <input type="text" placeholder="Masukkan nama lengkap">
+        </div>
 
-<div class="limit-text">
-QRIS TELAH MENCAPAI LIMIT TRANSAKSI HARIAN
-</div>
-</div>
-</div>
+        <div class="form-group">
+            <label>Email Aktif</label>
+            <input type="email" placeholder="Masukkan email aktif">
+        </div>
 
-<div class="warning-box">
-<strong>Segera lakukan pembayaran ulang untuk verifikasi transaksi.</strong><br><br>
-Pembayaran pending akan otomatis hangus apabila verifikasi tidak diselesaikan sebelum timer berakhir.
-</div>
+        <div class="form-group">
+            <label>Nomor WhatsApp</label>
+            <input type="tel" placeholder="08xxxxxxxxxx">
+        </div>
 
-<div class="timer" id="countdown">09:59</div>
+        <div class="form-group">
+            <label>Nama 4 Peserta</label>
+            <textarea rows="4" placeholder="Tulis nama seluruh peserta"></textarea>
+        </div>
 
-<button class="btn" onclick="redirectPayment()">
-Lakukan Pembayaran Ulang
-</button>
+        <div class="countdown">
+            ⏳ Waktu Pengisian Tersisa <span id="timer">14:59</span>
+        </div>
 
-<div class="footer-note">
-Sistem akan tetap mengarahkan ke link pembayaran yang sama untuk proses verifikasi ulang transaksi.
-</div>
-</div>
-</div>
+        <button class="btn">LANJUTKAN PEMBAYARAN</button>
+    </div>
 
-<!-- STEP 3 -->
-<div class="card hidden" id="step3">
-<div class="success-box">
-<div class="success-icon">✓</div>
-<h2>Verifikasi Diproses</h2>
-<p>
-Pembayaran sedang diverifikasi otomatis oleh sistem.<br><br>
-Status transaksi akan dikirim melalui WhatsApp dan email setelah admin melakukan pengecekan final.
-</p>
+    <div class="payment-box">
+        <h2>QRIS PEMBAYARAN</h2>
 
-<button class="btn" style="margin-top:24px">
-Menunggu Verifikasi
-</button>
-</div>
-</div>
+        <img src="qris-pembayaran.png" class="qris-image" alt="QRIS Pembayaran">
+
+        <div class="limit-box">
+            <p>⚠ Pastikan nominal pembayaran sesuai paket bundling yang dipilih.</p>
+        </div>
+
+        <br>
+
+        <img src="qris-limit.png" class="qris-image" alt="Limit Pembayaran">
+    </div>
+
+    <div class="footer">
+        © 2026 POLIPONI BALI • Powered by LETRALIVE
+    </div>
 
 </div>
 
 <script>
-function nextStep(step){
-document.getElementById('step1').classList.add('hidden');
-document.getElementById('step2').classList.remove('hidden');
+const fakeTexts = [
+    '🔴 21 orang baru saja membeli Paket Bundling Festival',
+    '⚡ 8 tiket Fast Track sedang di checkout',
+    '🔥 Pengunjung dari Jakarta baru membeli Paket Premium',
+    '🚨 Tinggal 3 paket Fast Track tersisa',
+    '🎫 127 orang sedang membuka halaman checkout ini'
+];
 
-document.getElementById('stepIndicator2').classList.add('active');
-document.getElementById('progress').style.width='66%';
-}
+let index = 0;
 
-function redirectPayment(){
-window.location.href='https://example.com';
-}
+setInterval(() => {
+    index = (index + 1) % fakeTexts.length;
+    document.getElementById('fakeBuy').innerText = fakeTexts[index];
+}, 3000);
 
-let time=599;
+let duration = 15 * 60;
 
-setInterval(()=>{
-let minutes=Math.floor(time/60);
-let seconds=time%60;
+const timer = document.getElementById('timer');
 
-if(seconds<10){
-seconds='0'+seconds;
-}
+setInterval(() => {
+    let minutes = Math.floor(duration / 60);
+    let seconds = duration % 60;
 
-if(minutes<10){
-minutes='0'+minutes;
-}
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
 
-const countdown=document.getElementById('countdown');
-if(countdown){
-countdown.innerHTML=`${minutes}:${seconds}`;
-}
+    timer.innerHTML = minutes + ':' + seconds;
 
-if(time>0){
-time--;
-}
+    if(duration > 0){
+        duration--;
+    }
 },1000);
 </script>
 
