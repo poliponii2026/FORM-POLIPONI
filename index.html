@@ -26,9 +26,19 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#f4f6f9;
+
+background:
+linear-gradient(rgba(255,255,255,.88),
+rgba(255,255,255,.88)),
+url('background.jpg');
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
 color:#111;
 overflow-x:hidden;
+
 }
 
 .container{
@@ -44,6 +54,7 @@ width:100%;
 display:block;
 border-bottom-left-radius:28px;
 border-bottom-right-radius:28px;
+box-shadow:0 15px 35px rgba(0,0,0,.15);
 }
 
 /* PAGE */
@@ -59,31 +70,39 @@ display:block;
 }
 
 @keyframes fade{
+
 from{
 opacity:0;
 transform:translateY(10px);
 }
+
 to{
 opacity:1;
 transform:translateY(0);
 }
+
 }
 
 /* CARD */
 
 .card{
-background:white;
-border-radius:26px;
+background:rgba(255,255,255,.95);
+backdrop-filter:blur(10px);
+
+border-radius:28px;
 padding:24px;
 margin-bottom:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.05);
-border:1px solid #ececec;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.08);
+
+border:1px solid rgba(255,255,255,.4);
 }
 
 /* TITLE */
 
 .title{
-font-size:28px;
+font-size:30px;
 font-weight:800;
 margin-bottom:8px;
 }
@@ -92,6 +111,7 @@ margin-bottom:8px;
 color:#666;
 margin-bottom:20px;
 font-size:14px;
+line-height:1.7;
 }
 
 /* TIMER */
@@ -108,6 +128,7 @@ gap:10px;
 font-size:18px;
 font-weight:700;
 margin-bottom:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
 /* FORM */
@@ -126,20 +147,30 @@ margin-bottom:8px;
 .form-group input,
 .form-group textarea,
 .form-group select{
+
 width:100%;
 padding:16px;
-border-radius:16px;
+
+border-radius:18px;
 border:1px solid #ddd;
+
 font-size:15px;
 outline:none;
+
+background:white;
+
 transition:.3s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus{
+
 border-color:#00b7ff;
-box-shadow:0 0 0 4px rgba(0,183,255,.1);
+
+box-shadow:
+0 0 0 4px rgba(0,183,255,.12);
+
 }
 
 textarea{
@@ -150,23 +181,36 @@ height:120px;
 /* BUTTON */
 
 .button{
+
 width:100%;
 padding:18px;
+
 border:none;
 border-radius:999px;
-background:linear-gradient(135deg,#00c8ff,#008cff);
+
+background:
+linear-gradient(135deg,#00c8ff,#008cff);
+
 color:white;
+
 font-size:17px;
 font-weight:700;
+
 cursor:pointer;
+
 transition:.3s;
-box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.12);
+
 }
 
 .button:disabled{
+
 background:#cfd6dd;
 cursor:not-allowed;
 box-shadow:none;
+
 }
 
 .button:hover:not(:disabled){
@@ -180,6 +224,8 @@ display:flex;
 justify-content:space-between;
 margin-bottom:14px;
 font-size:15px;
+padding-bottom:10px;
+border-bottom:1px dashed #ddd;
 }
 
 .receipt-item strong{
@@ -189,12 +235,18 @@ font-size:15px;
 /* QRIS */
 
 .qris-box{
+
 border:2px dashed #00b7ff;
+
 padding:20px;
 border-radius:24px;
+
 text-align:center;
+
 background:#f8fcff;
+
 margin-top:20px;
+
 }
 
 .qris-box img{
@@ -202,6 +254,7 @@ width:100%;
 max-width:320px;
 border-radius:18px;
 margin-top:16px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 /* FILE */
@@ -218,27 +271,56 @@ border-radius:18px;
 background:white;
 }
 
+/* CHECK */
+
+.check{
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:18px;
+font-size:14px;
+font-weight:600;
+}
+
 /* LOADING */
 
 .loading-screen{
+
 position:fixed;
 inset:0;
-background:white;
+
+background:
+linear-gradient(rgba(255,255,255,.92),
+rgba(255,255,255,.92)),
+url('background.jpg');
+
+background-size:cover;
+background-position:center;
+
 display:none;
+
 align-items:center;
 justify-content:center;
 flex-direction:column;
+
 z-index:99999;
+
 }
 
 .spinner{
+
 width:70px;
 height:70px;
+
 border:6px solid #dfefff;
 border-top:6px solid #00b7ff;
+
 border-radius:50%;
+
 animation:spin 1s linear infinite;
+
 margin-bottom:20px;
+
 }
 
 @keyframes spin{
@@ -295,17 +377,6 @@ color:#666;
 line-height:1.8;
 }
 
-/* CHECK */
-
-.check{
-display:flex;
-align-items:center;
-gap:10px;
-margin-top:18px;
-font-size:14px;
-font-weight:600;
-}
-
 /* MOBILE */
 
 @media(max-width:600px){
@@ -340,9 +411,9 @@ font-size:24px;
 <img src="banner.jpg" alt="Banner">
 </div>
 
-<!-- ========================= -->
+<!-- ===================== -->
 <!-- PAGE 1 -->
-<!-- ========================= -->
+<!-- ===================== -->
 
 <div class="page active" id="page1">
 
@@ -353,12 +424,13 @@ FORM PEMBELIAN
 </div>
 
 <div class="subtitle">
-Silahkan lengkapi data pembelian tiket
+Silahkan lengkapi data pembelian tiket POLIPONI 2026
 </div>
 
 <div class="timer">
 <i class="fa-solid fa-clock"></i>
-Sisa Waktu : <span id="countdown">15:00</span>
+Sisa Waktu :
+<span id="countdown">15:00</span>
 </div>
 
 <div class="form-group">
@@ -386,9 +458,11 @@ placeholder="KTP / SIM / PASPORT / KARTU PELAJAR">
 <label>Category Tiket</label>
 
 <select id="kategori">
+
 <option value="">Pilih Category</option>
 <option>PREMIUM</option>
 <option>FAST TRACK</option>
+
 </select>
 
 </div>
@@ -397,12 +471,13 @@ placeholder="KTP / SIM / PASPORT / KARTU PELAJAR">
 <label>Jumlah Tiket</label>
 
 <select id="jumlah">
+
 <option value="">Pilih Jumlah</option>
 <option>1 Tiket</option>
 <option>2 Tiket</option>
 <option>3 Tiket</option>
 <option>4 Tiket</option>
-<option>5 Tiket</option>
+
 </select>
 
 </div>
@@ -412,17 +487,22 @@ placeholder="KTP / SIM / PASPORT / KARTU PELAJAR">
 <textarea id="alamat"></textarea>
 </div>
 
-<button class="button" id="nextBtn" disabled onclick="goPage2()">
+<button class="button"
+id="nextBtn"
+disabled
+onclick="goPage2()">
+
 SELANJUTNYA
+
 </button>
 
 </div>
 
 </div>
 
-<!-- ========================= -->
+<!-- ===================== -->
 <!-- PAGE 2 -->
-<!-- ========================= -->
+<!-- ===================== -->
 
 <div class="page" id="page2">
 
@@ -465,7 +545,7 @@ Silahkan lakukan pembayaran QRIS
 <h2>QRIS PEMBAYARAN</h2>
 
 <p style="margin-top:10px;color:#666;">
-Scan QRIS di bawah ini untuk melakukan pembayaran
+Scan QRIS di bawah ini
 </p>
 
 <img src="qris-pembayaran.png" alt="QRIS">
@@ -476,8 +556,12 @@ Scan QRIS di bawah ini untuk melakukan pembayaran
 
 <div class="upload-box">
 
-<label style="display:block;margin-bottom:10px;font-weight:600;">
+<label style="display:block;
+margin-bottom:10px;
+font-weight:600;">
+
 Upload Bukti Pembayaran
+
 </label>
 
 <input type="file" id="bukti">
@@ -496,17 +580,22 @@ Saya sudah melakukan pembayaran
 
 <br>
 
-<button class="button" id="buyBtn" disabled onclick="finishOrder()">
+<button class="button"
+id="buyBtn"
+disabled
+onclick="finishOrder()">
+
 BELI TIKET
+
 </button>
 
 </div>
 
 </div>
 
-<!-- ========================= -->
+<!-- ===================== -->
 <!-- PAGE 3 -->
-<!-- ========================= -->
+<!-- ===================== -->
 
 <div class="page" id="page3">
 
@@ -517,9 +606,11 @@ BELI TIKET
 <h1>PROSES PEMBELIAN</h1>
 
 <p>
+
 Pembelian tiket sedang diproses.<br>
-Silahkan tunggu sebentar,<br>
+Silahkan tunggu sebentar.<br>
 Anda akan diarahkan otomatis.
+
 </p>
 
 </div>
@@ -530,11 +621,10 @@ Anda akan diarahkan otomatis.
 
 <script>
 
-/* ========================= */
 /* VALIDASI PAGE 1 */
-/* ========================= */
 
 const fields = [
+
 'nama',
 'identitas',
 'email',
@@ -542,6 +632,7 @@ const fields = [
 'kategori',
 'jumlah',
 'alamat'
+
 ];
 
 fields.forEach(id=>{
@@ -560,47 +651,53 @@ let valid = true;
 
 fields.forEach(id=>{
 
-if(document.getElementById(id).value.trim() === ''){
+if(document.getElementById(id)
+.value.trim() === ''){
+
 valid = false;
+
 }
 
 });
 
-document.getElementById('nextBtn').disabled = !valid;
+document.getElementById('nextBtn')
+.disabled = !valid;
 
 }
 
-/* ========================= */
 /* PAGE 2 */
-/* ========================= */
 
 function goPage2(){
 
 showLoading(2000,()=>{
 
-document.getElementById('page1').classList.remove('active');
+document.getElementById('page1')
+.classList.remove('active');
 
-document.getElementById('page2').classList.add('active');
+document.getElementById('page2')
+.classList.add('active');
 
-document.getElementById('rNama').innerText =
+document.getElementById('rNama')
+.innerText =
 document.getElementById('nama').value;
 
-document.getElementById('rKategori').innerText =
+document.getElementById('rKategori')
+.innerText =
 document.getElementById('kategori').value;
 
-document.getElementById('rJumlah').innerText =
+document.getElementById('rJumlah')
+.innerText =
 document.getElementById('jumlah').value;
 
-document.getElementById('rWa').innerText =
+document.getElementById('rWa')
+.innerText =
 document.getElementById('wa').value;
 
 });
 
 }
 
-/* ========================= */
 /* VALIDASI PAGE 2 */
-/* ========================= */
 
 document.getElementById('bukti')
 .addEventListener('change',validatePayment);
@@ -611,27 +708,29 @@ document.getElementById('check')
 function validatePayment(){
 
 const bukti =
-document.getElementById('bukti').files.length > 0;
+document.getElementById('bukti')
+.files.length > 0;
 
 const check =
-document.getElementById('check').checked;
+document.getElementById('check')
+.checked;
 
-document.getElementById('buyBtn').disabled =
-!(bukti && check);
+document.getElementById('buyBtn')
+.disabled = !(bukti && check);
 
 }
 
-/* ========================= */
 /* FINISH */
-/* ========================= */
 
 function finishOrder(){
 
 showLoading(5000,()=>{
 
-document.getElementById('page2').classList.remove('active');
+document.getElementById('page2')
+.classList.remove('active');
 
-document.getElementById('page3').classList.add('active');
+document.getElementById('page3')
+.classList.add('active');
 
 setTimeout(()=>{
 
@@ -644,9 +743,7 @@ window.location.href =
 
 }
 
-/* ========================= */
 /* LOADING */
-/* ========================= */
 
 function showLoading(duration,callback){
 
@@ -665,9 +762,7 @@ callback();
 
 }
 
-/* ========================= */
 /* TIMER */
-/* ========================= */
 
 let time = 900;
 
@@ -676,8 +771,11 @@ document.getElementById('countdown');
 
 setInterval(()=>{
 
-const minutes = Math.floor(time / 60);
-const seconds = time % 60;
+const minutes =
+Math.floor(time / 60);
+
+const seconds =
+time % 60;
 
 countdown.innerText =
 `${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
