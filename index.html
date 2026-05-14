@@ -226,10 +226,12 @@ margin-bottom:14px;
 font-size:15px;
 padding-bottom:10px;
 border-bottom:1px dashed #ddd;
+gap:10px;
 }
 
 .receipt-item strong{
 font-size:15px;
+text-align:right;
 }
 
 /* QRIS */
@@ -408,7 +410,7 @@ font-size:24px;
 <!-- BANNER -->
 
 <div class="banner">
-<img src="banner-best.jpg" alt=banner">
+<img src="banner-best.jpg" alt="banner">
 </div>
 
 <!-- ===================== -->
@@ -460,8 +462,8 @@ placeholder="KTP / SIM / PASPORT / KARTU PELAJAR">
 <select id="kategori">
 
 <option value="">Pilih Category</option>
-<option>PREMIUM</option>
-<option>FAST TRACK</option>
+<option value="PREMIUM">PREMIUM - Rp. 475.000</option>
+<option value="FAST TRACK">FAST TRACK - Rp. 650.000</option>
 
 </select>
 
@@ -473,17 +475,16 @@ placeholder="KTP / SIM / PASPORT / KARTU PELAJAR">
 <select id="jumlah">
 
 <option value="">Pilih Jumlah</option>
-<option>1 Tiket</option>
-<option>2 Tiket</option>
-<option>3 Tiket</option>
-<option>4 Tiket</option> 
-<option>5 Tiket</option>
-<option>6 Tiket</option>
-<option>7 Tiket</option>
-<option>8 Tiket</option>
-<option>9 Tiket</option>
-<option>10 Tiket</option>
-
+<option value="1">1 Tiket</option>
+<option value="2">2 Tiket</option>
+<option value="3">3 Tiket</option>
+<option value="4">4 Tiket</option> 
+<option value="5">5 Tiket</option>
+<option value="6">6 Tiket</option>
+<option value="7">7 Tiket</option>
+<option value="8">8 Tiket</option>
+<option value="9">9 Tiket</option>
+<option value="10">10 Tiket</option>
 
 </select>
 
@@ -538,6 +539,16 @@ Silahkan lakukan pembayaran QRIS
 <div class="receipt-item">
 <span>Jumlah Tiket</span>
 <strong id="rJumlah"></strong>
+</div>
+
+<div class="receipt-item">
+<span>Harga / Tiket</span>
+<strong id="rHarga"></strong>
+</div>
+
+<div class="receipt-item">
+<span>Total Pembayaran</span>
+<strong id="rTotal"></strong>
 </div>
 
 <div class="receipt-item">
@@ -672,6 +683,14 @@ document.getElementById('nextBtn')
 
 }
 
+/* FORMAT RUPIAH */
+
+function formatRupiah(angka){
+
+return 'Rp. ' + angka.toLocaleString('id-ID');
+
+}
+
 /* PAGE 2 */
 
 function goPage2(){
@@ -684,21 +703,59 @@ document.getElementById('page1')
 document.getElementById('page2')
 .classList.add('active');
 
-document.getElementById('rNama')
-.innerText =
+/* AMBIL DATA */
+
+const nama =
 document.getElementById('nama').value;
 
-document.getElementById('rKategori')
-.innerText =
+const kategori =
 document.getElementById('kategori').value;
 
+const jumlah =
+parseInt(
+document.getElementById('jumlah').value
+);
+
+const wa =
+document.getElementById('wa').value;
+
+/* HARGA */
+
+let harga = 0;
+
+if(kategori === 'PREMIUM'){
+
+harga = 475000;
+
+}else if(kategori === 'FAST TRACK'){
+
+harga = 650000;
+
+}
+
+/* TOTAL */
+
+const total = harga * jumlah;
+
+/* TAMPILKAN */
+
+document.getElementById('rNama')
+.innerText = nama;
+
+document.getElementById('rKategori')
+.innerText = kategori;
+
 document.getElementById('rJumlah')
-.innerText =
-document.getElementById('jumlah').value;
+.innerText = jumlah + ' Tiket';
+
+document.getElementById('rHarga')
+.innerText = formatRupiah(harga);
+
+document.getElementById('rTotal')
+.innerText = formatRupiah(total);
 
 document.getElementById('rWa')
-.innerText =
-document.getElementById('wa').value;
+.innerText = wa;
 
 });
 
